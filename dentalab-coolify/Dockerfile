@@ -5,6 +5,7 @@ COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
 RUN pnpm install --frozen-lockfile
 
 FROM dependencies AS builder
+ENV DEPLOY_TARGET=vps
 COPY . .
 RUN pnpm run build
 
